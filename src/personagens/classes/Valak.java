@@ -1,7 +1,6 @@
 package personagens.classes;
 
 import personagens.Personagem;
-import state.EstadoNormal;
 import strategy.ataque.AForte;
 import strategy.corrida.CMedio;
 import strategy.pulo.PMedio;
@@ -14,8 +13,8 @@ public class Valak extends Personagem {
     setCorrer(new CMedio());
     setPular(new PMedio());
     setVida(70);
-    setEstado(new EstadoNormal(this));
-    
+    setEscudos(new int[] { 0 });
+
   }
 
 }

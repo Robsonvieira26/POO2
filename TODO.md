@@ -2,7 +2,7 @@
 
 - [x] Strategy
 - [ ] State
-- [ ] Chain of Responsability
+- [x] Chain of Responsability
 - [ ] Decorator
 
 # Entrega 2
