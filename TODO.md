@@ -1,6 +1,6 @@
 # Entrega 1
 
-- [ ] Strategy
+- [x] Strategy
 - [ ] State
 - [ ] Chain of Responsability
 - [ ] Decorator
