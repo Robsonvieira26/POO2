@@ -1,6 +1,7 @@
 package personagens.classes;
 
 import personagens.Personagem;
+import state.EstadoNormal;
 import strategy.ataque.AForte;
 import strategy.corrida.CMedio;
 import strategy.pulo.PMedio;
@@ -16,6 +17,7 @@ public class Valak extends Personagem {
     setEscudoOuro(0);
     setEscudoPrata(0);
     setEscudoBronze(0);
+    setEstado(new EstadoNormal(this));
 
   }
 

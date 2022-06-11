@@ -2,6 +2,7 @@ package personagens.classes;
 
 
 import personagens.Personagem;
+import state.EstadoNormal;
 import strategy.ataque.ANormal;
 import strategy.corrida.CRapido;
 import strategy.pulo.PAlto;
@@ -17,6 +18,8 @@ public class Succubus extends Personagem {
     setEscudoOuro(0);
     setEscudoPrata(0);
     setEscudoBronze(0);
+    setEstado(new EstadoNormal(this));
+
 
   }
 
