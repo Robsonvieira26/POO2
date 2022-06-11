@@ -1,10 +1,10 @@
 package personagens;
 
-public class Dano {
+public class DanoRecebido {
   
   protected double ataqueInimigo;
 
-  public Dano(double ataqueInimigo) {
+  public DanoRecebido(double ataqueInimigo) {
     this.ataqueInimigo = ataqueInimigo;
   }
 

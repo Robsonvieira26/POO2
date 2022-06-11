@@ -1,6 +1,6 @@
 package chain;
 
-import personagens.Dano;
+import personagens.DanoRecebido;
 
 public class EscudoPrata extends Escudo {
   public EscudoPrata(Escudo proximo,int protecao) {
@@ -10,7 +10,7 @@ public class EscudoPrata extends Escudo {
     
 
   @Override
-  public double processaDano(Dano d) {
+  public double processaDano(DanoRecebido d) {
     d.setAtaqueInimigo(d.getAtaqueInimigo() - getProtecao());
     if (d.getAtaqueInimigo() < 0) {
       d.setAtaqueInimigo(0);

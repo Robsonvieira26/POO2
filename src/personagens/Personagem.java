@@ -16,7 +16,17 @@ public abstract class Personagem {
   private Pular pular;
   private double vida;
   private int escudoOuro, escudoPrata, escudoBronze;
-  Estado estado;
+  private Estado estado;
+  private DanoCausado danoCausado;
+
+  public DanoCausado getDanoCausado() {
+    // System.out.println(this.getNome() +" Causa "+this.danoCausado.getDano()+" de dano");
+    return danoCausado;
+  }
+
+  public void setDanoCausado(DanoCausado danoCausado) {
+    this.danoCausado = danoCausado;
+  }
 
   public String getEstado() {
     return "Estado [" + estado.getClass().getSimpleName() + "]";
@@ -84,7 +94,7 @@ public abstract class Personagem {
         " Escudo Bronze: " + this.escudoBronze);
   }
 
-  public double calculaDano(Dano d) {
+  public double calculaDano(DanoRecebido d) {
     Escudo esc = new EscudoOuro(new EscudoPrata(new EscudoBronze(new SemEscudo(), this.escudoBronze), this.escudoPrata),
         this.escudoOuro);
     System.out.println(getNome() + " recebeu [" + esc.processaDano(d) + "] de dano");
@@ -92,7 +102,7 @@ public abstract class Personagem {
   }
 
   public void receberDano(int valor) {
-    Dano d = new Dano(Math.abs(valor));
+    DanoRecebido d = new DanoRecebido(Math.abs(valor));
     double dano = calculaDano(d);
     estado.diminuirVida(dano);
     // System.out.println("Vida atual: [" + getVida() + "]\n");

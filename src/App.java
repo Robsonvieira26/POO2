@@ -1,6 +1,7 @@
 
 // import personagens.classes.Buer;
 // import personagens.classes.Succubus;
+import decorator.ataques_especiais.Fogo;
 import personagens.classes.Valak;
 
 public class App {
@@ -11,16 +12,19 @@ public class App {
         // Buer p3 = new Buer();
         // normal
         // p1.setEscudoBronze(50);
-        p1.getEscudos();
-        p1.receberDano(60);
-        System.out.println("Vida: " + p1.getVida());
+        // p1.getEscudos();
+        // p1.receberDano(60);
+        // System.out.println("Vida: " + p1.getVida());
         // perigo
         p1.curarVida(100);
         System.out.println("Vida: " + p1.getVida());
+        p1.getDanoCausado();
 
+        p1.setDanoCausado(new Fogo(p1.getDanoCausado()));
+        p1.getDanoCausado();
         // forte
-        p1.receberDano(500);
-        System.out.println("Vida: " + p1.getVida());
+        // p1.receberDano(500);
+        // System.out.println("Vida: " + p1.getVida());
 
         // morto
         // p1.Atacar();

@@ -1,6 +1,7 @@
 package personagens.classes;
 
 import strategy.pulo.PBaixo;
+import decorator.dano_personagens.DanoBuer;
 import personagens.Personagem;
 import state.EstadoNormal;
 import strategy.ataque.AForte;
@@ -18,6 +19,8 @@ public class Buer extends Personagem {
     setEscudoPrata(0);
     setEscudoBronze(0);
     setEstado(new EstadoNormal(this));
+    setDanoCausado(new DanoBuer());
+    // setDanoCausado();
 
   }
 

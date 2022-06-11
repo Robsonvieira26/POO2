@@ -1,5 +1,6 @@
 package personagens.classes;
 
+import decorator.dano_personagens.DanoValak;
 import personagens.Personagem;
 import state.EstadoNormal;
 import strategy.ataque.AForte;
@@ -18,7 +19,7 @@ public class Valak extends Personagem {
     setEscudoPrata(0);
     setEscudoBronze(0);
     setEstado(new EstadoNormal(this));
-
+    setDanoCausado(new DanoValak());
   }
 
 }

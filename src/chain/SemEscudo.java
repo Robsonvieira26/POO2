@@ -1,13 +1,13 @@
 package chain;
 
-import personagens.Dano;
+import personagens.DanoRecebido;
 
 public class SemEscudo extends Escudo {
   public SemEscudo() {
     super(null);
   }
 
-  public double processaDano(Dano d) {
+  public double processaDano(DanoRecebido d) {
     return d.getAtaqueInimigo();
   }
 

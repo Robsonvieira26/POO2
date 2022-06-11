@@ -1,6 +1,6 @@
 package chain;
 
-import personagens.Dano;
+import personagens.DanoRecebido;
 
 public abstract class Escudo {
   protected Escudo proximo;
@@ -18,5 +18,5 @@ public abstract class Escudo {
     this.proximo = proximo;
   }
 
-  public abstract double processaDano(Dano d);
+  public abstract double processaDano(DanoRecebido d);
 }
