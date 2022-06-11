@@ -13,7 +13,9 @@ public class Valak extends Personagem {
     setCorrer(new CMedio());
     setPular(new PMedio());
     setVida(70);
-    setEscudos(new int[] { 0 });
+    setEscudoOuro(0);
+    setEscudoPrata(0);
+    setEscudoBronze(0);
 
   }
 

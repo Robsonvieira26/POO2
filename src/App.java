@@ -19,17 +19,8 @@ public class App {
         Dano d = new Dano(15.0);
         p1.receberDano(d);
         System.out.println("\n Teste com escudo adicionado");
-        p1.setEscudos(new int[] { 10 });
+        p1.setEscudoOuro(16);
         p1.receberDano(d);
-        // //
-        // p2.Atacar();
-        // p2.Correr();
-        // p2.Pular();
-        // System.out.println("\n");
-
-        // // //
-        // p3.Atacar();
-        // p3.Correr();
-        // p3.Pular();
+        
     }
 }

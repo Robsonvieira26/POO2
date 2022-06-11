@@ -1,10 +1,12 @@
 package personagens;
 
 import chain.Escudo;
+import chain.EscudoBronze;
 import strategy.Atacar;
 import strategy.Correr;
 import strategy.Pular;
 import chain.EscudoOuro;
+import chain.EscudoPrata;
 import chain.SemEscudo;
 
 public abstract class Personagem {
@@ -13,15 +15,7 @@ public abstract class Personagem {
   private Correr correr;
   private Pular pular;
   private double vida;
-  private int escudos[];
-
-  public int[] getEscudos() {
-    return escudos;
-  }
-
-  public void setEscudos(int[] escudos) {
-    this.escudos = escudos;
-  }
+  private int escudoOuro, escudoPrata, escudoBronze;
 
   public void setVida(double vida) {
     this.vida = vida;
@@ -63,8 +57,21 @@ public abstract class Personagem {
     pular.pular(nome);
   }
 
+  public void setEscudoOuro(int valor) {
+    this.escudoOuro = valor;
+  }
+
+  public void setEscudoPrata(int valor) {
+    this.escudoPrata = valor;
+  }
+
+  public void setEscudoBronze(int valor) {
+    this.escudoBronze = valor;
+  }
+
   public double receberDano(Dano d) {
-    Escudo esc = new EscudoOuro(new SemEscudo(), escudos[0]);
+    Escudo esc = new EscudoOuro(new EscudoPrata(new EscudoBronze(new SemEscudo(), this.escudoBronze), this.escudoPrata),
+        this.escudoOuro);
     System.out.println(getNome() + " recebeu [" + esc.processaDano(d) + "] de dano");
     return esc.processaDano(d);
 

@@ -14,6 +14,10 @@ public class Succubus extends Personagem {
     setCorrer(new CRapido());
     setPular(new PAlto());
     setVida(70);
+    setEscudoOuro(0);
+    setEscudoPrata(0);
+    setEscudoBronze(0);
+
   }
 
 }

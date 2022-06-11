@@ -13,6 +13,9 @@ public class Buer extends Personagem {
     setCorrer(new CRapido());
     setPular(new PBaixo());
     setVida(70);
+    setEscudoOuro(0);
+    setEscudoPrata(0);
+    setEscudoBronze(0);
 
   }
 
