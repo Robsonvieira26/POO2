@@ -7,7 +7,9 @@ public class TradicionalGame extends Game {
 
   @Override
   public Personagem createPersonagem() {
-    return SimplePersonagemFactory.createPersonagem();
+    SimplePersonagemFactory singleton = SimplePersonagemFactory.getInstance();
+    Personagem p = singleton.createPersonagem();
+    return p;
   }
 
 }

@@ -13,7 +13,20 @@ import personagens.classes.Succubus;
 import personagens.classes.Valak;
 
 public class SimplePersonagemFactory {
-  public static Personagem createPersonagem() {
+  private static SimplePersonagemFactory instance = null;
+
+  private SimplePersonagemFactory() {
+    super();
+  }
+
+  public static SimplePersonagemFactory getInstance() {
+    if (instance == null) {
+      instance = new SimplePersonagemFactory();
+    }
+    return instance;
+  }
+
+  public Personagem createPersonagem() {
     Personagem p = null;
     double random = Math.random();
     // System.out.println(random);

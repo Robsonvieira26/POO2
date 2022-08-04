@@ -16,8 +16,20 @@ import strategy.corrida.CMedio;
 import strategy.pulo.PMedio;
 
 public class AdvancedePersonagemFactory {
+  private static AdvancedePersonagemFactory instance = null;
 
-  public static Personagem createPersonagem() {
+  private AdvancedePersonagemFactory() {
+    super();
+  }
+
+  public static AdvancedePersonagemFactory getInstance() {
+    if (instance == null) {
+      instance = new AdvancedePersonagemFactory();
+    }
+    return instance;
+  }
+
+  public Personagem createPersonagem() {
     Personagem personagem = null;
     double random = Math.random();
     // System.out.println(random);

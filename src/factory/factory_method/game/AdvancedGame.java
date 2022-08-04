@@ -7,10 +7,10 @@ import factory.factory_method.AdvancedePersonagemFactory;
 import personagens.Personagem;
 
 public class AdvancedGame extends Game {
-
   @Override
   public Personagem createPersonagem() {
-    Personagem p = AdvancedePersonagemFactory.createPersonagem();
+    AdvancedePersonagemFactory singleton = AdvancedePersonagemFactory.getInstance();
+    Personagem p = singleton.createPersonagem();
     double random = Math.random();
     if (random < 0.49) {
       p.setDanoCausado(new Fogo(p.getDanoCausado()));
@@ -20,5 +20,9 @@ public class AdvancedGame extends Game {
       p.setDanoCausado(new EstrelaCaida(p.getDanoCausado()));
     }
     return p;
+  }
+
+  public static AdvancedGame getInstance() {
+    return null;
   }
 }
