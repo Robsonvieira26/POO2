@@ -3,11 +3,11 @@ package factory.factory_method.game;
 import personagens.Personagem;
 
 public abstract class Game {
-  public abstract Personagem createPersonagem();
+  public abstract Personagem createPersonagem(int estiloJogo);
 
-  public void Jogar() {
-    Personagem p1 = createPersonagem();
-    Personagem p2 = createPersonagem();
+  public void Jogar(int estiloJogo) {
+    Personagem p1 = createPersonagem(estiloJogo);
+    Personagem p2 = createPersonagem(estiloJogo);
     System.out.println("P1:" + p1.getNome() + "- Ataque:" + p1.getAtaque());
     System.out.println("P2:" + p2.getNome() + "- Ataque:" + p2.getAtaque());
 
@@ -28,12 +28,19 @@ public abstract class Game {
   }
 
   public void Combate(Personagem p1, Personagem p2) {
+    int cont = 0;
+    int silence = 0;
     while (p1.getVida() > 0 && p2.getVida() > 0) {
       double dano1 = p1.informaDanoCausado();
-      p2.receberDano(dano1);
+      p2.receberDano(dano1, silence);
       if (p2.getVida() > 0) {
         double dano2 = p2.informaDanoCausado();
-        p1.receberDano(dano2);
+        p1.receberDano(dano2, silence);
+      }
+      cont++;
+      if (cont == 10) {
+        System.out.println("Ativando batalha silenciosa para melhorar a performance");
+        silence = 1;
       }
     }
     if (p1.getVida() > 0) {

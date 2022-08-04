@@ -99,16 +99,17 @@ public abstract class Personagem {
         " Escudo Bronze: " + this.escudoBronze);
   }
 
-  public double calculaDano(DanoRecebido d) {
+  public double calculaDano(DanoRecebido d, int Silence) {
     Escudo esc = new EscudoOuro(new EscudoPrata(new EscudoBronze(new SemEscudo(), this.escudoBronze), this.escudoPrata),
         this.escudoOuro);
-    System.out.println(getNome() + " recebeu [" + esc.processaDano(d) + "] de dano");
+    if (Silence == 0)
+      System.out.println(getNome() + " recebeu [" + esc.processaDano(d) + "] de dano");
     return esc.processaDano(d);
   }
 
-  public void receberDano(double dano1) {
+  public void receberDano(double dano1, int Silence) {
     DanoRecebido d = new DanoRecebido(Math.abs(dano1));
-    double dano = calculaDano(d);
+    double dano = calculaDano(d, Silence);
     estado.diminuirVida(dano);
     // System.out.println("Vida atual: [" + getVida() + "]\n");
     // System.out.println("Estado [" + estado.getClass().getSimpleName() + "]");

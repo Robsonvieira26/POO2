@@ -3,14 +3,26 @@ package factory.factory_method.game;
 import decorator.ataques_especiais.EstrelaCaida;
 import decorator.ataques_especiais.Fogo;
 import decorator.ataques_especiais.Veneno;
-import factory.factory_method.AdvancedePersonagemFactory;
+import factory.factory_method.AdvancedPersonagemFactory;
+import factory.factory_method.other_factories.AdvancedPersonagemCyberFactory;
+import factory.factory_method.other_factories.AdvancedPersonagemRoyalFactory;
 import personagens.Personagem;
 
 public class AdvancedGame extends Game {
   @Override
-  public Personagem createPersonagem() {
-    AdvancedePersonagemFactory singleton = AdvancedePersonagemFactory.getInstance();
-    Personagem p = singleton.createPersonagem();
+  public Personagem createPersonagem(int estiloJogo) {
+    Personagem p = null;
+    if (estiloJogo == 0) {
+      AdvancedPersonagemFactory singleton = AdvancedPersonagemFactory.getInstance();
+      p = singleton.createPersonagem();
+    } else if (estiloJogo == 1) {
+      AdvancedPersonagemCyberFactory singleton = AdvancedPersonagemCyberFactory.getInstance();
+      p = singleton.createPersonagem();
+    } else {
+      AdvancedPersonagemRoyalFactory singleton = AdvancedPersonagemRoyalFactory.getInstance();
+      p = singleton.createPersonagem();
+    }
+
     double random = Math.random();
     if (random < 0.49) {
       p.setDanoCausado(new Fogo(p.getDanoCausado()));
@@ -22,7 +34,4 @@ public class AdvancedGame extends Game {
     return p;
   }
 
-  public static AdvancedGame getInstance() {
-    return null;
-  }
 }

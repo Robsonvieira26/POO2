@@ -15,16 +15,16 @@ import strategy.ataque.ANormal;
 import strategy.corrida.CMedio;
 import strategy.pulo.PMedio;
 
-public class AdvancedePersonagemFactory {
-  private static AdvancedePersonagemFactory instance = null;
+public class AdvancedPersonagemFactory {
+  private static AdvancedPersonagemFactory instance = null;
 
-  private AdvancedePersonagemFactory() {
+  private AdvancedPersonagemFactory() {
     super();
   }
 
-  public static AdvancedePersonagemFactory getInstance() {
+  public static AdvancedPersonagemFactory getInstance() {
     if (instance == null) {
-      instance = new AdvancedePersonagemFactory();
+      instance = new AdvancedPersonagemFactory();
     }
     return instance;
   }
