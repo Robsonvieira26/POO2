@@ -7,4 +7,9 @@ public class AFraco extends Atacar {
     System.out.println(nome + " usou um ataque fraco!");
   }
 
+  @Override
+  public String toString() {
+    // TODO Auto-generated method stub
+    return "AFraco";
+  }
 }

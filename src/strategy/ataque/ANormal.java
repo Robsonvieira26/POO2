@@ -7,4 +7,9 @@ public class ANormal extends Atacar {
     System.out.println(nome + " usou um ataque Normal!");
   }
 
+  @Override
+  public String toString() {
+    // TODO Auto-generated method stub
+    return "ANormal";
+  }
 }

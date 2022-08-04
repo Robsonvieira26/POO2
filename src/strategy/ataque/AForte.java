@@ -7,4 +7,9 @@ public class AForte extends Atacar {
     System.out.println(nome + " usou um ataque forte!");
   }
 
+  @Override
+  public String toString() {
+    return "AForte";
+  }
+
 }

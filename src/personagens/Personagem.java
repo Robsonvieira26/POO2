@@ -20,8 +20,13 @@ public abstract class Personagem {
   private DanoCausado danoCausado;
 
   public DanoCausado getDanoCausado() {
-    // System.out.println(this.getNome() +" Causa "+this.danoCausado.getDano()+" de dano");
+    // System.out.println(this.getNome() +" Causa "+this.danoCausado.getDano()+" de
+    // dano");
     return danoCausado;
+  }
+
+  public double informaDanoCausado() {
+    return danoCausado.getDano();
   }
 
   public void setDanoCausado(DanoCausado danoCausado) {
@@ -101,8 +106,8 @@ public abstract class Personagem {
     return esc.processaDano(d);
   }
 
-  public void receberDano(int valor) {
-    DanoRecebido d = new DanoRecebido(Math.abs(valor));
+  public void receberDano(double dano1) {
+    DanoRecebido d = new DanoRecebido(Math.abs(dano1));
     double dano = calculaDano(d);
     estado.diminuirVida(dano);
     // System.out.println("Vida atual: [" + getVida() + "]\n");
@@ -119,6 +124,19 @@ public abstract class Personagem {
     }
     // System.out.println("Vida atual: [" + getVida() + "]\n");
     // System.out.println("Estado [" + estado.getClass().getSimpleName() + "]");
+  }
+
+  public String getAtaque() {
+    return this.atacar.toString();
+  }
+
+  public int definePrioridade() {
+    if (this.getAtaque() == "AForte")
+      return 3;
+    else if (this.getAtaque() == "ANormal")
+      return 2;
+    else
+      return 1;
   }
 
 }

@@ -32,16 +32,16 @@ public class EstadoNormal extends Estado {
   @Override
   protected void verificarAlteracaoEstado() {
     if (personagem.getVida() <= 0) {
-      System.out.println(personagem.getNome()+" morreu");
+      System.out.println(personagem.getNome() + " morreu");
       System.exit(0);
     } else if (personagem.getVida() > 0 && personagem.getVida() <= 29) {
-      System.out.println(personagem.getNome()+" esta no estado Perigo");
+      System.out.println(personagem.getNome() + " esta no estado Perigo");
       personagem.setEstado(new EstadoPerigo(personagem));
     } else if (personagem.getVida() >= 30 && personagem.getVida() <= 70) {
-      System.out.println(personagem.getNome()+"esta no estado normal");
+      System.out.println(personagem.getNome() + " esta no estado normal");
       personagem.setEstado(new EstadoNormal(personagem));
     } else if (personagem.getVida() > 70) {
-      System.out.println(personagem.getNome()+" esta no estado forte");
+      System.out.println(personagem.getNome() + " esta no estado forte");
       personagem.setEstado(new EstadoForte(personagem));
     }
   }
