@@ -14,23 +14,23 @@ public class SalaNormal implements Sala {
     this.inimigo = inimigo;
   }
 
-  public void defineAcao(Personagem heroi) {
-    heroi.informaAtributos();
+  public void jogar(Personagem p) {
+    p.informaAtributos();
     System.out.println("Sala normal");
 
-    int resultado = geraCombate(heroi, this.inimigo);
+    int resultado = geraCombate(p, this.inimigo);
 
     double random = Math.random();
     if (children.size() > 0 && resultado == 1) {
       if (random <= 0.5) {
         System.out.println("Foi pelo caminho 1");
-        children.get(0).defineAcao(heroi);
+        children.get(0).jogar(p);
       } else {
         System.out.println("Foi pelo caminho 2");
-        children.get(1).defineAcao(heroi);
+        children.get(1).jogar(p);
       }
     } else if (children.size() > 0 && resultado == 2) {
-      System.out.println(heroi.getNome() + " Morreu");
+      System.out.println(p.getNome() + " Morreu");
     } else if (children.size() == 0) {
       System.out.println("Problema na criação do labirinto");
     }

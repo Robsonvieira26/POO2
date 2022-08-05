@@ -3,8 +3,8 @@ package composite;
 import personagens.Personagem;
 
 public class SalaSaida implements Sala {
-  public void defineAcao(Personagem heroi) {
-    heroi.informaAtributos();
+  public void jogar(Personagem p) {
+    p.informaAtributos();
     System.out.println("Sala de saida\nVoce venceu o Labirinto!");
   }
 
