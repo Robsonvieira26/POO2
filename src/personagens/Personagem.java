@@ -139,5 +139,12 @@ public abstract class Personagem {
     else
       return 1;
   }
+  public void informaAtributos() {
+    System.out.println("----------");
+    System.out.println("Nome: " + getNome());
+    System.out.println("Vida: " + getVida());
+    System.out.println("----------");
+   
+  }
 
 }
