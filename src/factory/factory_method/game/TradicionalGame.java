@@ -1,8 +1,8 @@
 package factory.factory_method.game;
 
+import factory.abstract_factory.SimplePersonagemCyberFactory;
+import factory.abstract_factory.SimplePersonagemRoyalFactory;
 import factory.factory_method.SimplePersonagemFactory;
-import factory.factory_method.other_factories.SimplePersonagemCyberFactory;
-import factory.factory_method.other_factories.SimplePersonagemRoyalFactory;
 import personagens.Personagem;
 
 public class TradicionalGame extends Game {

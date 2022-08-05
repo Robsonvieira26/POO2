@@ -3,9 +3,9 @@ package factory.factory_method.game;
 import decorator.ataques_especiais.EstrelaCaida;
 import decorator.ataques_especiais.Fogo;
 import decorator.ataques_especiais.Veneno;
+import factory.abstract_factory.AdvancedPersonagemCyberFactory;
+import factory.abstract_factory.AdvancedPersonagemRoyalFactory;
 import factory.factory_method.AdvancedPersonagemFactory;
-import factory.factory_method.other_factories.AdvancedPersonagemCyberFactory;
-import factory.factory_method.other_factories.AdvancedPersonagemRoyalFactory;
 import personagens.Personagem;
 
 public class AdvancedGame extends Game {

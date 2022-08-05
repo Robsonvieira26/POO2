@@ -1,4 +1,4 @@
-package factory.factory_method.other_factories;
+package factory.abstract_factory;
 
 import decorator.dano_personagens.DanoAbadon;
 import decorator.dano_personagens.DanoBuer;
@@ -6,25 +6,25 @@ import decorator.dano_personagens.DanoMorningstarBuff;
 import decorator.dano_personagens.DanoSuccubus;
 import decorator.dano_personagens.DanoValak;
 import personagens.Personagem;
-import personagens.classes.cyber.CyberAbadon;
-import personagens.classes.cyber.CyberBuer;
-import personagens.classes.cyber.CyberMorningstar;
-import personagens.classes.cyber.CyberSuccubus;
-import personagens.classes.cyber.CyberValak;
+import personagens.classes.royal.RoyalAbadon;
+import personagens.classes.royal.RoyalBuer;
+import personagens.classes.royal.RoyalMorningstar;
+import personagens.classes.royal.RoyalSuccubus;
+import personagens.classes.royal.RoyalValak;
 import strategy.ataque.ANormal;
 import strategy.corrida.CMedio;
 import strategy.pulo.PMedio;
 
-public class AdvancedPersonagemCyberFactory {
-  private static AdvancedPersonagemCyberFactory instance = null;
+public class AdvancedPersonagemRoyalFactory {
+  private static AdvancedPersonagemRoyalFactory instance = null;
 
-  private AdvancedPersonagemCyberFactory() {
+  private AdvancedPersonagemRoyalFactory() {
     super();
   }
 
-  public static AdvancedPersonagemCyberFactory getInstance() {
+  public static AdvancedPersonagemRoyalFactory getInstance() {
     if (instance == null) {
-      instance = new AdvancedPersonagemCyberFactory();
+      instance = new AdvancedPersonagemRoyalFactory();
     }
     return instance;
   }
@@ -34,23 +34,23 @@ public class AdvancedPersonagemCyberFactory {
     double random = Math.random();
     // System.out.println(random);
     if (random <= 0.2) {
-      personagem = new CyberValak();
+      personagem = new RoyalValak();
       personagem.setDanoCausado(new DanoValak());
       personagem.setAtacar(new ANormal()); // nerfado
     } else if (random <= 0.4) {
-      personagem = new CyberSuccubus();
+      personagem = new RoyalSuccubus();
       personagem.setDanoCausado(new DanoSuccubus());
       personagem.setCorrer(new CMedio()); // nerfado
     } else if (random <= 0.6) {
-      personagem = new CyberBuer();
+      personagem = new RoyalBuer();
       personagem.setDanoCausado(new DanoBuer());
       personagem.setAtacar(new ANormal()); // nerfado
     } else if (random <= 0.8) {
-      personagem = new CyberAbadon();
+      personagem = new RoyalAbadon();
       personagem.setDanoCausado(new DanoAbadon());
       personagem.setAtacar(new ANormal()); // nerfado
     } else if (random <= 1.0) {
-      personagem = new CyberMorningstar();
+      personagem = new RoyalMorningstar();
       personagem.setDanoCausado(new DanoMorningstarBuff());
       personagem.setAtacar(new ANormal()); // BUFFADO
       personagem.setCorrer(new CMedio()); // BUFFADO
