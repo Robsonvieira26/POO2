@@ -13,4 +13,16 @@ public class SalaSaida implements Sala {
     System.out.println("Não é possível adicionar salas a sala de saida");
   }
 
+  @Override
+  public int selecionarCaminho() {
+    System.out.println("Não é possível selecionar caminho a sala de saida");
+    return 0;
+  }
+
+  @Override
+  public int lutar() {
+    System.out.println("Não é possível lutar a sala de saida");
+    return 0;
+  }
+
 }

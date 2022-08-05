@@ -9,7 +9,6 @@ public class ANormal extends Atacar {
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
     return "ANormal";
   }
 }

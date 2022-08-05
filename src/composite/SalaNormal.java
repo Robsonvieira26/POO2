@@ -1,6 +1,7 @@
 package composite;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import personagens.Personagem;
 
@@ -17,18 +18,18 @@ public class SalaNormal implements Sala {
   public void jogar(Personagem p) {
     p.informaAtributos();
     System.out.println("Sala normal");
+    System.out.println("O inimigo é " + inimigo.getNome());
+    int dano = lutar();
+    System.out.println("O dano recebido foi " + dano);
+    p.setVida(p.getVida() - dano);
+    int resultado = 2;
+    if (p.getVida() > 0) {
+      resultado = 1;// sobreviveu
+    }
 
-    int resultado = geraCombate(p, this.inimigo);
-
-    double random = Math.random();
     if (children.size() > 0 && resultado == 1) {
-      if (random <= 0.5) {
-        System.out.println("Foi pelo caminho 1");
-        children.get(0).jogar(p);
-      } else {
-        System.out.println("Foi pelo caminho 2");
-        children.get(1).jogar(p);
-      }
+      int caminhoEscolhido = selecionarCaminho();
+      children.get(caminhoEscolhido).jogar(p);
     } else if (children.size() > 0 && resultado == 2) {
       System.out.println(p.getNome() + " Morreu");
     } else if (children.size() == 0) {
@@ -36,45 +37,23 @@ public class SalaNormal implements Sala {
     }
   }
 
-  public int geraCombate(Personagem p1, Personagem p2) {
-
-    int prioridade1 = p1.definePrioridade();
-    int prioridade2 = p2.definePrioridade();
-
-    if (prioridade1 > prioridade2) {
-      System.out.println("Prioridade de ataque " + p1.getNome() + " depois, " + p2.getNome());
-      return Combate(p1, p2);
-    } else if (prioridade1 < prioridade2) {
-      System.out.println("Prioridade de ataque " + p2.getNome() + " depois, " + p1.getNome());
-      return Combate(p2, p1);
+  @Override
+  public int selecionarCaminho() {
+    // automatico
+    double random = Math.random();
+    if (random <= 0.5) {
+      System.out.println("Foi pelo caminho 1");
+      return 0;
     } else {
-      System.out.println("Prioridade de ataque " + p1.getNome() + " depois, " + p2.getNome());
-      return Combate(p1, p2);
+      System.out.println("Foi pelo caminho 2");
+      return 1;
     }
   }
 
-  public int Combate(Personagem p1, Personagem p2) {
-    int cont = 0;
-    int silence = 0;
-    while (p1.getVida() > 0 && p2.getVida() > 0) {
-      double dano1 = p1.informaDanoCausado();
-      p2.receberDano(dano1, silence);
-      if (p2.getVida() > 0) {
-        double dano2 = p2.informaDanoCausado();
-        p1.receberDano(dano2, silence);
-      }
-      cont++;
-      if (cont == 10) {
-        System.out.println("Ativando batalha silenciosa para melhorar a performance");
-        silence = 1;
-      }
-    }
-    if (p1.getVida() > 0) {
-      System.out.println("Vencedor: " + p1.getNome());
-      return 1;
-    } else {
-      System.out.println("Vencedor: " + p2.getNome());
-      return 2;
-    }
+  @Override
+  public int lutar() {
+    Random rn = new Random();
+    int dano = rn.nextInt(10) + 1;
+    return dano;
   }
 }

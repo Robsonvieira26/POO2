@@ -9,7 +9,6 @@ public class AFraco extends Atacar {
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
     return "AFraco";
   }
 }
